@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --glass-bg: rgba(10, 13, 20, 0.52);
+  --glass-bg-strong: rgba(12, 16, 26, 0.70);
+  --glass-border: rgba(255, 240, 220, 0.14);
+  --shadow-soft: 0 24px 64px rgba(0, 0, 0, 0.65);
+  --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.50);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #F8FAFC;
+    background-color: #050608;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050608;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(245, 158, 11, 0.45);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FBBF24;
+  }
+}
+
+@layer utilities {
+  /* Smoked Deep-Space Crystal Glassmorphism over Gargantua */
+  .lumora-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .lumora-glass-strong {
+    background: var(--glass-bg-strong);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 240, 220, 0.20);
+    box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  /* Animated White Text with Black Eclipse Effect (for Hero Headline) */
+  .text-eclipse-lumora {
+    background: linear-gradient(
+      110deg,
+      #ffffff 0%,
+      #ffffff 36%,
+      #cbd5e1 44%,
+      #090b10 50%,
+      #cbd5e1 56%,
+      #ffffff 64%,
+      #ffffff 100%
+    );
+    background-size: 240% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradmove 5.5s ease-in-out infinite;
+  }
+
+  .headline-black-aura {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95))
+      drop-shadow(0 8px 22px rgba(0, 0, 0, 0.92));
+  }
+
+  /* Photon Gold Primary Button */
+  .btn-lumora-primary {
+    background: linear-gradient(100deg, #FEF3C7 0%, #FBBF24 50%, #F59E0B 100%);
+    background-size: 180% auto;
+    color: #090B10;
+    box-shadow: 0 12px 34px rgba(245, 158, 11, 0.32);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, background-position 0.5s ease;
+  }
+  .btn-lumora-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    background-position: right center;
+    box-shadow: 0 16px 44px rgba(251, 191, 36, 0.48);
+  }
+
+  .btn-lumora-secondary {
+    background: rgba(15, 20, 30, 0.55);
+    border: 1px solid rgba(255, 240, 220, 0.24);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #F8FAFC;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease, border-color 0.35s ease;
+  }
+  .btn-lumora-secondary:hover {
+    transform: translateY(-2px) scale(1.02);
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(251, 191, 36, 0.45);
+  }
+
+  /* Crisp dark halo for headings floating over bright accretion disk */
+  .text-over-video {
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.85), 0 1px 4px rgba(0, 0, 0, 0.9);
+  }
+
+  /* ==========================================================================
+     SPACECRAFT BUNKER / SCI-FI LAB AIRLOCK BLAST DOOR TEXTURES
+     ========================================================================== */
+  .bunker-metal-left {
+    background:
+      repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.025) 0px,
+        rgba(255, 255, 255, 0.025) 2px,
+        transparent 2px,
+        transparent 18px
+      ),
+      linear-gradient(135deg, #1b2232 0%, #101521 55%, #0a0d15 100%);
+    box-shadow:
+      inset -3px 0 0 rgba(251, 191, 36, 0.35),
+      inset -8px 0 18px rgba(0, 0, 0, 0.8),
+      inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  }
+
+  .bunker-metal-right {
+    background:
+      repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.025) 0px,
+        rgba(255, 255, 255, 0.025) 2px,
+        transparent 2px,
+        transparent 18px
+      ),
+      linear-gradient(225deg, #1b2232 0%, #101521 55%, #0a0d15 100%);
+    box-shadow:
+      inset 3px 0 0 rgba(251, 191, 36, 0.35),
+      inset 8px 0 18px rgba(0, 0, 0, 0.8),
+      inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  }
+
+  .bunker-hazard-strip {
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(245, 158, 11, 0.55) 0px,
+      rgba(245, 158, 11, 0.55) 6px,
+      rgba(9, 11, 16, 0.85) 6px,
+      rgba(9, 11, 16, 0.85) 12px
+    );
+  }
+
+  .bunker-interior-grid {
+    background-size: 28px 28px;
+    background-image:
+      linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+  }
+}
+
+@keyframes gradmove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ============================================================================
+   ORBITING CIRCLES GLOBE KEYFRAMES
+   ============================================================================ */
+@keyframes orbit-cw {
+  from { transform: rotate(var(--start-angle)); }
+  to { transform: rotate(calc(var(--start-angle) + 360deg)); }
+}
+@keyframes orbit-ccw {
+  from { transform: rotate(var(--start-angle)); }
+  to { transform: rotate(calc(var(--start-angle) - 360deg)); }
+}
+@keyframes counter-cw {
+  from { transform: rotate(calc(var(--start-angle) * -1)); }
+  to { transform: rotate(calc(var(--start-angle) * -1 - 360deg)); }
+}
+@keyframes counter-ccw {
+  from { transform: rotate(calc(var(--start-angle) * -1)); }
+  to { transform: rotate(calc(var(--start-angle) * -1 + 360deg)); }
+}
+
+.orbit-arm-cw {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 50%;
+  margin-left: -24px;
+  transform-origin: bottom center;
+  animation: orbit-cw var(--dur, 20s) linear infinite;
+}
+
+.orbit-arm-ccw {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 50%;
+  margin-left: -24px;
+  transform-origin: bottom center;
+  animation: orbit-ccw var(--dur, 24s) linear infinite;
+}
+
+.orbit-bubble-cw {
+  animation: counter-cw var(--dur, 20s) linear infinite;
+}
+
+.orbit-bubble-ccw {
+  animation: counter-ccw var(--dur, 24s) linear infinite;
+}
+
+@media (max-width: 700px) {
+  .orbit-arm-cw,
+  .orbit-arm-ccw {
+    margin-left: -18px;
+  }
+}
